@@ -58,7 +58,7 @@ Plan on about **8–12 GB of free RAM** for both processes, plus Postgres. A 16 
 
 ## Why GGUF
 
-GGUF is the file format llama.cpp runs. The quantized weights, vocabulary, and model settings live in one file, so you do not need a PyTorch or CUDA install to serve the model. `llama-server` exposes an OpenAI-compatible HTTP API. This app only needs that:
+GGUF is the file format [llama.cpp](https://github.com/ggml-org/llama.cpp) runs. The quantized weights, vocabulary, and model settings live in one file, so you do not need a PyTorch or CUDA install to serve the model. [`llama-server`](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md) exposes an OpenAI-compatible HTTP API. This app only needs that:
 
 - `POST /v1/embeddings` on port 8081
 - `POST /v1/chat/completions` (streamed) on port 8080
@@ -69,7 +69,7 @@ The API expects embedding length **2560**. A different embedding model will be r
 
 ## Run the models
 
-Install llama.cpp and use its `llama-server` binary. Download [Qwen3-Embedding-4B-Q6_K.gguf](https://huggingface.co/Qwen/Qwen3-Embedding-4B-GGUF/blob/main/Qwen3-Embedding-4B-Q6_K.gguf) and [Qwen3.5-4B-Q4_K_M.gguf](https://huggingface.co/ggml-org/Qwen3.5-4B-GGUF/blob/main/Qwen3.5-4B-Q4_K_M.gguf), then start each in its own terminal:
+Install [llama.cpp](https://github.com/ggml-org/llama.cpp) ([build instructions](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md)) and use its [`llama-server`](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md) binary. Download [Qwen3-Embedding-4B-Q6_K.gguf](https://huggingface.co/Qwen/Qwen3-Embedding-4B-GGUF/blob/main/Qwen3-Embedding-4B-Q6_K.gguf) and [Qwen3.5-4B-Q4_K_M.gguf](https://huggingface.co/ggml-org/Qwen3.5-4B-GGUF/blob/main/Qwen3.5-4B-Q4_K_M.gguf), then start each in its own terminal:
 
 ```bash
 # chat
